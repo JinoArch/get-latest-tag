@@ -34,7 +34,7 @@ async function latestTag(owner, repo){
     tags.sort(cmpTags);
     const [latestTag] = tags.slice(-1);
     const [previousTag] = tags.slice(-2);
-    return latestTag, previousTag;
+    return [latestTag, previousTag];
     
 }
 
