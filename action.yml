@@ -1,0 +1,19 @@
+name: 'Latest & Previous Tag'
+description: 'Get latest and previous tag from a repository'
+inputs:
+  githubToken:
+    description: 'Github Token for authentication'
+    required: true
+    default: ${{ github.token }}
+  repository:
+    description: 'Repository Name'
+    required: true
+    default: ${{ github.repository }}
+outputs:
+  latestTag:
+    description: 'Latest Pushed Tag'
+  previousTag:
+    description: 'One before latest tag'
+runs:
+  using: 'node16'
+  main: 'index.js'
