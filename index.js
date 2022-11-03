@@ -9,8 +9,8 @@ async function run() {
     try{
         const splitrepositoryString = repository.split("/");
         const [owner, repo] = splitrepositoryString;
-
         [latest, previous] = await latestTag(owner, repo)
+        console.log(latest, previous)
         core.setOutput("latestTag", latest)
         core.setOutput("previousTag", previous)
     }catch (error) {
@@ -34,8 +34,6 @@ async function latestTag(owner, repo){
     tags.sort(cmpTags);
     const [latestTag] = tags.slice(-1);
     const [previousTag] = tags.slice(-2);
-    console.log(latestTag)
-    console.log(previousTag)
     return latestTag, previousTag;
     
 }
