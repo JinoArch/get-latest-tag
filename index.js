@@ -32,9 +32,10 @@ async function latestTag(owner, repo, secret_name){
         throw error;
     }
     tags.sort(cmpTags);
-    console.log(typeof tags)
     const [latestTag] = tags.slice(-1);
     const [previousTag] = tags.slice(-2);
+    console.log(latestTag)
+    console.log(previousTag)
     return latestTag, previousTag;
     
 }
