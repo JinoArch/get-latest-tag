@@ -35,14 +35,7 @@ async function latestTag(owner, repo, secret_name){
     const [latestTag] = tags.slice(-1);
     const [previousTag] = tags.slice(-2);
     return latestTag, previousTag;
-}
-
-async function* getItemsFromPages(pages) {
-    for await (const page of octokit.paginate.iterator(pages)) {
-        for (const item of page.data) {
-            yield item;
-        }
-    }
+    
 }
 
 async function* getItemsFromPages(pages) {
