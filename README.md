@@ -12,7 +12,7 @@ ${{ steps.jinos.outputs.previousTag }}
 ```
 - name: NewTag
   id: tag
-  uses: JinoArch/get-latest-tag@v0.0.2
+  uses: JinoArch/get-latest-tag@latest
 ```
 
 An example to get changelog
