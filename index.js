@@ -21,7 +21,7 @@ async function run() {
 async function latestTag(owner, repo, secret_name){
     const endpoint = octokit.repos.listTags;
     const pages = endpoint.endpoint.merge({"owner": owner, "repo": repo, "per_page": 100});
-    console.log(endpoint)
+    console.log(pages)
     
     const tags = [];
     for await (const item of getItemsFromPages(pages)) {
