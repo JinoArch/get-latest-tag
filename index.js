@@ -10,7 +10,7 @@ async function run() {
         const splitrepositoryString = repository.split("/");
         const [owner, repo] = splitrepositoryString;
 
-        [latest, previous] = await latestTag("rewards-guilds", "kensho", "DRANZER_BOT_TOKEN")
+        [latest, previous] = await latestTag(owner, repo)
         core.setOutput("latestTag", latest)
         core.setOutput("previousTag", previous)
     }catch (error) {
@@ -18,7 +18,7 @@ async function run() {
     }
 }
 
-async function latestTag(owner, repo, secret_name){
+async function latestTag(owner, repo){
     const endpoint = octokit.repos.listTags;
     const pages = endpoint.endpoint.merge({"owner": owner, "repo": repo, "per_page": 100}); 
     
