@@ -20,5 +20,5 @@ An example to get changelog
 - name: changelog
   id: changelog
   run: |
-    echo "changelog=$(git log "${{ steps.previousTag.outputs.previousTag }}...${{ steps.previousTag.outputs.latestTag }}" --pretty=format:"- <http://github.com/rewards-guilds/kensho/commit/%H|%h> - %s\n" | awk '{print}' ORS=' ')" >> $GITHUB_OUTPUT
+    echo "changelog=$(git log "${{ steps.tag.outputs.previousTag }}...${{ steps.tag.outputs.latestTag }}" --pretty=format:"- <http://github.com/rewards-guilds/kensho/commit/%H|%h> - %s\n" | awk '{print}' ORS=' ')" >> $GITHUB_OUTPUT
 ```
