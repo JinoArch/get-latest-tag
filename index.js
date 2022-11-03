@@ -20,8 +20,7 @@ async function run() {
 
 async function latestTag(owner, repo, secret_name){
     const endpoint = octokit.repos.listTags;
-    const pages = endpoint.endpoint.merge({"owner": owner, "repo": repo, "per_page": 100});
-    console.log(pages)
+    const pages = endpoint.endpoint.merge({"owner": owner, "repo": repo, "per_page": 100}); 
     
     const tags = [];
     for await (const item of getItemsFromPages(pages)) {
@@ -33,6 +32,7 @@ async function latestTag(owner, repo, secret_name){
         throw error;
     }
     tags.sort(cmpTags);
+    console.log(tag)
     const [latestTag] = tags.slice(-1);
     const [previousTag] = tags.slice(-2);
     return latestTag, previousTag;
